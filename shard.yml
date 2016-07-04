@@ -1,0 +1,15 @@
+name: barnabas
+version: 0.1.0
+
+authors:
+  - Andy Nicholson <andrew@anicholson.net>
+
+description: |
+  Prompts to send encouragements to your friends via iMessage
+
+dependencies:
+  toml:
+    github: manastech/crystal-toml
+    version:
+
+license: MIT
