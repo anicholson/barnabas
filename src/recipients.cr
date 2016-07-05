@@ -2,21 +2,21 @@ require "toml"
 require "./recipient"
 
 class Recipients
-  class << self
-    def load(filename : String | File = "$HOME/.barnabas/contacts.toml")
-       toml = TOML.parse(filename)
+  def self.load(filename : String | File = "#{ENV["HOME"]}/.barnabas/contacts.toml")
+       toml = TOML.parse_file(filename)
        parse_recipients(toml)
     end
 
-    private
-
-    def parse_recipients(toml) : Hash(String, Recipient)
+    private def self.parse_recipients(toml : TOML::Type) : Hash(String, Recipient)
       recipients = toml["recipients"] as Hash
-      return { "Andy": Recipient.new("Andy", "+61402270411")
+
+      all_recipients = {} of String => Recipient
+      recipients.each do |name, contact|
+        puts (typeof(contact))
+        all_recipients[name] = Recipient.new(contact["name"], contact["contact"])
+      end
+      all_recipients
     end
 end
 
-
-if $0 === __FILE__
-  Recipients.load
-end
+puts Recipients.load
