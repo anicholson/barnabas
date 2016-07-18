@@ -1,6 +1,9 @@
+require "./env"
+
 require "option_parser"
 require "./recipients"
 require "./message_sender"
+
 
 contact = Recipient::BLANK
 message = ""
