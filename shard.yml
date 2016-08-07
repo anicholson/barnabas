@@ -8,8 +8,10 @@ description: |
   Prompts to send encouragements to your friends via iMessage
 
 dependencies:
-  toml:
-    github: manastech/crystal-toml
+  db:
+    github: crystal-lang/crystal-db
     version:
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
 
 license: MIT

@@ -1,46 +1,19 @@
+require "./env"
+
 require "option_parser"
 require "./recipients"
 require "./message_sender"
+require "./command"
 
-contact = Recipient::BLANK
-message = ""
+recipients = RecipientRepository.new(ENV["BARNABAS_HOME"] + "/" + ENV["BARNABAS_DB"])
 
-recipients = RecipientRepository.new(ENV["HOME"] + "/.barnabas/contacts.toml")
-
-parser = OptionParser.new
-parser.on("-m MESSAGE", "Message to send") {|msg| message = msg }
-
-parser.on("-t NAME", "--to=NAME", "Name of the contact to message") do |name|
-  if recipient = recipients.fetch(name)
-    contact = recipient
-  end
+def command_to_run
+  command = (ARGV.any? && ARGV.shift) || "help"
 end
 
-parser.on("-h", "--help", "Show this help") { puts parser; exit 0 }
+command = Command::Repository[command_to_run]
 
-begin
-  parser.parse!
-rescue e : OptionParser::Exception
-  puts e.message
-  puts parser
-
-  exit 1
-end
+command.process(ARGV, recipients)
 
 
-if contact == Recipient::BLANK
-  puts "You need to specify a recipient!"
-  error = true
-end
-
-if message.empty?
-  puts "You need to provide a message!"
-  error = true
-end
-
-if error
-  puts parser
-  exit 1
-end
-
-MessageSender.send(contact, message)
+exit(1)
