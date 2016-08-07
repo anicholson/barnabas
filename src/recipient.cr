@@ -2,8 +2,9 @@ struct Recipient
   getter name
   getter contact
 
-  BLANK = self.new("", "")
+  NEVER = :NEVER
+  BLANK = self.new("", "", NEVER)
 
-  def initialize(@name : String, @contact : String)
+  def initialize(@name : String, @contact : String, @last_contacted : Symbol | Time)
   end
 end
