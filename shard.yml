@@ -13,8 +13,5 @@ dependencies:
     version:
   sqlite3:
     github: crystal-lang/crystal-sqlite3
-  toml:
-    github: manastech/crystal-toml
-    version:
 
 license: MIT

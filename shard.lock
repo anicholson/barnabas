@@ -8,7 +8,3 @@ shards:
     github: crystal-lang/crystal-sqlite3
     version: 0.5.0
 
-  toml:
-    github: manastech/crystal-toml
-    version: 0.4.0
-
