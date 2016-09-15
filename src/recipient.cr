@@ -1,7 +1,7 @@
 struct Recipient
   getter name
   getter contact
-  getter last_contacted
+  property last_contacted
 
   NEVER = :NEVER
   BLANK = self.new("", "", NEVER)

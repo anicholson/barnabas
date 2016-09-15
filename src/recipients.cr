@@ -23,6 +23,16 @@ class RecipientRepository
     end
   end
 
+  def mark_as_contacted(recipient : Recipient)
+    recipient.last_contacted = Time.now
+    with_db do |db|
+      query = "UPDATE contacts SET last_contacted=? WHERE name=? AND contact=?"
+
+      db.exec query, recipient.last_contacted, recipient.name, recipient.contact
+    end
+    recipient
+  end
+
   def create
     with_db do |db|
       CreatesDatabase.call(db)

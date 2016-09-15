@@ -38,8 +38,12 @@ module Command
       next :FAIL
     end
 
-    MessageSender.send(contact, message)
-
-    :OK
+    if MessageSender.send(contact, message)
+      recipients.mark_as_contacted(contact)
+      :OK
+    else
+      puts "Unable to send message to #{contact.name} at this time :("
+      :FAIL
+    end
   end
 end
