@@ -17,4 +17,5 @@ end
 
 require "./command/unknown"
 require "./command/add"
+require "./command/list"
 require "./command/send"
