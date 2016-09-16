@@ -31,7 +31,7 @@ module Command
       next :FAIL
     end
 
-    recipient = Recipient.new(_name.to_s, _contact.to_s, :NEVER)
+    recipient = Recipient.new(_name.to_s, _contact.to_s, Recipient::NEVER)
 
     repository.add(recipient)
     :OK

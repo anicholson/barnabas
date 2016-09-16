@@ -47,9 +47,9 @@ class RecipientRepository
       db.query "SELECT * FROM contacts" do |result_set|
 
         result_set.each do
-          name = result_set.read(String)
-          contact = result_set.read(String)
-          last_contacted = result_set.read?(Time) || Recipient::NEVER
+          name = result_set.read.as(String)
+          contact = result_set.read.to_s
+          last_contacted = result_set.read(Time) rescue nil
 
           all << Recipient.new(name, contact, last_contacted)
         end
