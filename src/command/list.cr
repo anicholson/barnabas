@@ -7,7 +7,7 @@ module Command
       next :OK
     else
       puts "Name#{Recipient::SEPARATOR}Contact#{Recipient::SEPARATOR}Last Contacted"
-      recipients.as(Array(Recipient)).each do |recipient|
+      recipients.as(Array(Recipient)).sort.each do |recipient|
         puts recipient
       end
     end
