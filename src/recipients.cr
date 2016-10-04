@@ -13,7 +13,7 @@ class RecipientRepository
   end
 
   def fetch(name)
-    all.find {|r| r.name == name }
+    all.find { |r| r.name == name }
   end
 
   def add(recipient : Recipient)
@@ -39,13 +39,12 @@ class RecipientRepository
     end
   end
 
-  private  getter dbname
+  private getter dbname
 
   private def load
     all = [] of Recipient
     with_db do |db|
       db.query "SELECT * FROM contacts" do |result_set|
-
         result_set.each do
           name = result_set.read.as(String)
           contact = result_set.read.to_s

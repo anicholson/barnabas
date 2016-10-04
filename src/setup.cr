@@ -12,7 +12,6 @@ end
 
 parser.parse!
 
-
 db_name = "barnabas" if db_name.empty?
 
 puts "Creating (if required) a db at #{ENV["BARNABAS_HOME"]}/#{db_name}"

@@ -4,7 +4,7 @@ module Command
     message = ""
 
     parser = OptionParser.new
-    parser.on("-m MESSAGE", "Message to send") {|msg| message = msg }
+    parser.on("-m MESSAGE", "Message to send") { |msg| message = msg }
 
     parser.on("-t NAME", "--to=NAME", "Name of the contact to message") do |name|
       if recipient = recipients.fetch(name)

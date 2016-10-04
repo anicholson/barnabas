@@ -15,5 +15,4 @@ command = Command::Repository[command_to_run]
 
 command.process(ARGV, recipients)
 
-
 exit(1)
