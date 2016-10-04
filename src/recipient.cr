@@ -5,8 +5,8 @@ struct Recipient
   getter contact
   property last_contacted
 
-  NEVER = nil
-  BLANK = self.new("", "", NEVER)
+  NEVER     = nil
+  BLANK     = self.new("", "", NEVER)
   SEPARATOR = "\t\t"
 
   def initialize(@name : String, @contact : String, @last_contacted : Time?)

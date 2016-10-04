@@ -15,7 +15,7 @@ module Command
     end
 
     private def self.commands
-      @@commands ||= { } of String => Command::Base
+      @@commands ||= {} of String => Command::Base
     end
   end
 end
