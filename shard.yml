@@ -10,7 +10,7 @@ description: |
 dependencies:
   db:
     github: crystal-lang/crystal-db
-    branch: master
+    branch: d7fdf1eada852ea084b7b9786e149094ec5270e0
   sqlite3:
     github: crystal-lang/crystal-sqlite3
     version: < 0.7.0

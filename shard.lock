@@ -2,7 +2,7 @@ version: 1.0
 shards:
   db:
     github: crystal-lang/crystal-db
-    commit: 751be7aa6a299f2d66fbcec45a0b57ef9af46c52
+    commit: d7fdf1eada852ea084b7b9786e149094ec5270e0
 
   sqlite3:
     github: crystal-lang/crystal-sqlite3
