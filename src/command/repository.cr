@@ -12,6 +12,9 @@ module Command
 
     def self.[](name)
       commands[name]
+    rescue KeyError
+      puts "#{name} is not a valid command."
+      return self["help"]
     end
 
     private def self.commands
