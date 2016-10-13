@@ -9,15 +9,15 @@ recipients = RecipientRepository.new(ENV["BARNABAS_HOME"] + "/" + ENV["BARNABAS_
 
 def exit_with_code(result : Symbol)
   known_codes = {
-    :OK => 0,
-    :FAIL => 1
+    :OK   => 0,
+    :FAIL => 1,
   }
 
   exit_code = begin
-                known_codes[result]
-              rescue KeyError
-                known_codes[:FAIL]
-              end
+    known_codes[result]
+  rescue KeyError
+    known_codes[:FAIL]
+  end
 
   exit(exit_code)
 end
@@ -29,6 +29,5 @@ end
 command = Command::Repository[command_to_run]
 
 result = command.process(ARGV, recipients)
-
 
 exit_with_code(result)
