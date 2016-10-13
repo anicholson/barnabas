@@ -7,11 +7,11 @@ module Command
   end
 
   macro command(name, description, &action)
-  %action  = Command.capture {{action}}
-  %command = Command::Base.new({{name}}, {{description}}, %action)
+    %action  = Command.capture {{action}}
+    %command = Command::Base.new({{name}}, {{description}}, %action)
 
-  Command::Repository.register({{name}}, %command)
-end
+    Command::Repository.register({{name}}, %command)
+  end
 end
 
 require "./command/unknown"
