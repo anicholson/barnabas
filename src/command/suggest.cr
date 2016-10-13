@@ -33,7 +33,9 @@ module Command
 
       message_to_send = gets.as(String).strip
 
-      MessageSender.send(suggested_contact, message_to_send)
+      sent_successfully = MessageSender.send(suggested_contact, message_to_send)
+
+      repository.mark_as_contacted(suggested_contact) if sent_successfully
     end
 
     :OK
