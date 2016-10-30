@@ -1,5 +1,3 @@
-#! /usr/bin/env bash
-
 function _barnabas_suggest {
   wesuggestchance=6
   suggest=$((RANDOM % wesuggestchance))
