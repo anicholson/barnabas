@@ -21,10 +21,11 @@ module Command
     suggestion_message = if last_contact == :NEVER
                            "You haven't sent #{suggested_contact.name} an encouragement before! Would you like to do that now? [Y/n]"
                          else
-                           "It's been #{days} day(s) since you last contacted\n#{suggested_contact.name}. Want to send them a quick encouragement now? [Y/n]"
+                           "It's been #{days} day(s) since you last contacted\n#{suggested_contact.name}. Want to send them a quick encouragement now? [Y/n]\t"
                          end
 
     print suggestion_message
+    STDOUT.flush
 
     answer = gets.as(String).chomp.upcase
 
