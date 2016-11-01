@@ -16,8 +16,6 @@ Barnabas gives you a nudge every now and again, to reach out and say hello. And 
 
 ## From Sources
 
-Barnabas is written in [Crystal][crystal], so make sure you have a Crystal compiler installed before you begin. (The easiest way, if you have [homebrew][brew], is `brew install crystal-lang`)
-
 - `git clone https://github.com/anicholson/barnabas.git`
 - `cd barnabas`
 - `./build.sh`
