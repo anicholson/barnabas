@@ -1,7 +1,7 @@
 require "./env"
 
 require "option_parser"
-require "./recipients"
+require "./recipient_repository"
 require "./message_sender"
 require "./command"
 

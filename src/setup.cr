@@ -1,6 +1,6 @@
 require "./env"
 require "option_parser"
-require "./recipients"
+require "./recipient_repository"
 
 parser = OptionParser.new
 
@@ -16,4 +16,6 @@ db_name = "barnabas" if db_name.empty?
 
 puts "Creating (if required) a db at #{ENV["BARNABAS_HOME"]}/#{db_name}"
 
-RecipientRepository.new(db_name).create
+repository = RecipientRepository.new(db_name)
+
+repository.create
