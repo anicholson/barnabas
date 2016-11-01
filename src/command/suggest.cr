@@ -1,3 +1,5 @@
+require "colorize"
+
 module Command
   command "suggest", "suggest someone to contact" do |_args, repository|
     confirmed = Proc(String, Bool).new do |answer|
@@ -19,9 +21,9 @@ module Command
            end
 
     suggestion_message = if last_contact == :NEVER
-                           "You haven't sent #{suggested_contact.name} an encouragement before! Would you like to do that now? [Y/n]"
+                           "You haven't sent #{suggested_contact.name.colorize.green} an encouragement before! Would you like to do that now? [Y/n]"
                          else
-                           "It's been #{days} day(s) since you last contacted\n#{suggested_contact.name}. Want to send them a quick encouragement now? [Y/n]\t"
+                           "It's been #{days.colorize.green} day(s) since you last contacted\n#{suggested_contact.name.colorize.green}. Want to send them a quick encouragement now? [Y/n]\t"
                          end
 
     print suggestion_message
@@ -30,7 +32,7 @@ module Command
     answer = gets.as(String).chomp.upcase
 
     if confirmed.call(answer)
-      puts "Type your message to #{suggested_contact.name}, then press ENTER:"
+      puts "Type your message to #{suggested_contact.name.colorize.green}, then press ENTER:"
 
       message_to_send = gets.as(String).strip
 
