@@ -1,6 +1,7 @@
 require "./env"
 require "option_parser"
 require "./recipient_repository"
+require "colorize"
 
 parser = OptionParser.new
 
@@ -13,9 +14,10 @@ end
 parser.parse!
 
 db_name = "barnabas" if db_name.empty?
+db_path = File.join(ENV["BARNABAS_HOME"], db_name)
 
-puts "Creating (if required) a db at #{ENV["BARNABAS_HOME"]}/#{db_name}"
+puts "Creating (if required) a db at #{db_path.colorize.yellow}"
 
-repository = RecipientRepository.new(db_name)
+repository = RecipientRepository.new(db_path)
 
 repository.create
