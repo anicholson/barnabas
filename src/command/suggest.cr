@@ -12,7 +12,7 @@ module Command
 
     last_contact = suggested_contact.last_contacted
 
-    days = if last_contact == :NEVER
+    days = if last_contact == Recipient::NEVER
              Float32::INFINITY
            else
              time_since_last_contact = Time.now - last_contact.as(Time)
@@ -20,7 +20,7 @@ module Command
              time_since_last_contact.total_days.ceil.to_i
            end
 
-    suggestion_message = if last_contact == :NEVER
+    suggestion_message = if last_contact == Recipient::NEVER
                            "You haven't sent #{suggested_contact.name.colorize.green} an encouragement before! Would you like to do that now? [Y/n]"
                          else
                            "It's been #{days.colorize.green} day(s) since you last contacted\n#{suggested_contact.name.colorize.green}. Want to send them a quick encouragement now? [Y/n]\t"
