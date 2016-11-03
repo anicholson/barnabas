@@ -1,6 +1,7 @@
 require "sqlite3"
 require "./recipient"
 require "./creates_database"
+require "colorize"
 
 class RecipientRepository
   @all : Array(Recipient) | Nil
@@ -58,6 +59,7 @@ class RecipientRepository
   end
 
   private def with_db(&block)
+    puts @dbname.colorize.white.on_blue
     DB.open "sqlite3://#{@dbname}" do |db|
       yield db
     end
