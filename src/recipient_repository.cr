@@ -59,7 +59,6 @@ class RecipientRepository
   end
 
   private def with_db(&block)
-    puts @dbname.colorize.white.on_blue
     DB.open "sqlite3://#{@dbname}" do |db|
       yield db
     end
