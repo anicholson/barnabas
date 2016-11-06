@@ -1,0 +1,7 @@
+steps:
+  - command: spec/integration_tests.sh
+    label: "Integration tests"
+    env:
+      BUILDKITE_DOCKER_COMPOSE_CONTAINER: barnabas
+      BUILDKITE_DOCKER_COMPOSE_FILE: docker-compose.yml
+      
