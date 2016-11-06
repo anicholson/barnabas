@@ -1,9 +1,6 @@
-require "./env"
-
 require "option_parser"
-require "./recipient_repository"
-require "./message_sender"
-require "./command"
+require "./env"
+require "./library"
 
 recipients = RecipientRepository.new(ENV["BARNABAS_HOME"] + "/" + ENV["BARNABAS_DB"])
 
