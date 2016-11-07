@@ -1,5 +1,7 @@
 # barnabas
 
+[![Build status](https://badge.buildkite.com/87926e8bbd2b05172e7f122040d08d09005bdb140c93993d92.svg)](https://buildkite.com/andrewdotnich/barnabas)
+
 Encouragements from your Terminal.
 
 Feel like you forget to keep in touch with your friends?
