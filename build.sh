@@ -20,4 +20,4 @@ fi
 
 mkdir -p build
 crystal deps update
-crystal build src/barnabas.cr -o build/barnabas
+crystal build src/barnabas.cr -o build/barnabas --error-trace
